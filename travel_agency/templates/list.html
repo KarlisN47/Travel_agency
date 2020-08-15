@@ -1,0 +1,39 @@
+
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}Travel in the Moment | Global{% endblock %}
+
+{% block content %}
+<form class="search"  method="get">
+    {% if filter %}
+    <input type="text" name="filter" value="{{filter}}">
+    {% else %}
+    <input type="text" placeholder="Search.." name="filter">
+    {% endif %}
+
+    <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+<table class="table">
+    <tr>
+        {% if trips == "id" %}
+            <th><a href="{% url 'list'%}?trip=-id"> ID </a></th>
+        {% else %}
+            <th><a href="{% url 'list'%}?trip=id"> ID </a></th>
+        {% endif %}
+
+        <th>Name</th>
+    </tr>
+
+    {% for trip in trips %}
+    <tr>
+        <td><a href="{% url 'detail' trip.id %}">{{trip.id}}</a></td>
+        <td>{{ trip.name }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock %}

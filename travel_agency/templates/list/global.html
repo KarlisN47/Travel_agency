@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}Travel in the Moment | Global{% endblock %}
+
+{% block content %}
+<h1>Global</h1>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Going date</th>
+        <th>Returning date</th>
+        <th>Price</th>
+    </tr>
+
+    {% for trip in trips %}
+    <tr>
+        <td><a href="{% url 'detail' trip.id %}">{{trip.name}}</a></td>
+        <td>{{trip.departuredate}}</td>
+        <td>{{trip.returndate}}</td>
+        <td>{{trip.priceadult}}€</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
