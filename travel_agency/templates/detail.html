@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}Travel in the Moment | {{trip.name}}{% endblock %}
+
+{% block content %}
+
+<section class="offer_area height-700 section_padding_100 bg-img" style="background-image: url({{trip.image.url}});">
+    <div class="container h-100">
+        <div class="row h-100 align-items-end justify-content-end">
+            <div class="welcome_slide_text">
+                <h2 data-animation="fadeInUp" data-delay="500ms" data-duration="500ms">{{trip.name}}</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<p>Hotel: {{trip.hotel.name}}, {{trip.hotel.standard}} stars hotel<br/>
+Hotel info: {{trip.hotel.description}}</p>
+<p>Going date: {{trip.departuredate}}</p>
+<p>Return date: {{trip.returndate}}</p>
+<p>Price for the adult: {{trip.priceadult}}€</p>
+<p>Price for the child: {{trip.pricechild}}€</p>
+{% endblock %}
+
